@@ -1,5 +1,6 @@
 package org.skypro29.HW.Streame.API.Controller;
 
+import org.apache.coyote.BadRequestException;
 import org.skypro29.HW.Streame.API.Employee.Employee;
 import org.skypro29.HW.Streame.API.Service.EmployeeService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +23,7 @@ public class EmployeeController {
     public Employee addEmployee(@RequestParam String firstName,
                                 @RequestParam String lastName,
                                 @RequestParam int departmentId,
-                                @RequestParam double salary) {
+                                @RequestParam double salary) throws BadRequestException {
         return this.service.add(firstName, lastName, departmentId, salary);
     }
 
