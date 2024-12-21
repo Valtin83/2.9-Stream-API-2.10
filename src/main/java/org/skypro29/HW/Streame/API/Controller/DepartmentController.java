@@ -17,17 +17,17 @@ public class DepartmentController {
         this.departmentService = departmentService;
     }
 
-    @GetMapping("/max-salary")
+    @GetMapping("/max-salary/{departmentId}")
     public Employee maxSalaryDepartment(@PathVariable int departmentId) {
         return departmentService.searchMaxSalaryDepartment(departmentId);
     }
 
-    @GetMapping("/min-salary")
+    @GetMapping("/min-salary/{departmentId}")
     public Employee minSalaryDepartment(@PathVariable int departmentId) {
         return departmentService.searchMinSalaryDepartment(departmentId);
     }
 
-    @GetMapping(value = "/all", params = "department")
+    @GetMapping("/all/{departmentId}")
     public Collection<Employee> allDepartment(@PathVariable int departmentId) {
         return departmentService.employeesDepartment(departmentId);
     }
