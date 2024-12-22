@@ -9,7 +9,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 
-
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
     Map<String, Employee> employeeMap;
@@ -20,7 +19,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee add(String firstName, String lastName, int department, double salary) {
+
         Employee employee = new Employee(firstName, lastName, department, salary);
+
         if (this.employeeMap.containsKey(employee.getFullName())) {
             throw new EmployeeAlreadyAddedException("Работник уже в списке");
         } else {
